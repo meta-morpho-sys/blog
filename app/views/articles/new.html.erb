@@ -1,4 +1,25 @@
 <%= form_for :article, url: articles_path do |f| %>
+
+<style type='text/css'>
+  .field_with_errors {
+    color: #FF0000;
+  }
+</style>
+
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@article.errors.count, "error") %>
+        Check red fileds :-)
+      </h2>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -12,4 +33,6 @@
   <p>
     <%= f.submit %>
   </p>
+
+  <%= link_to 'Back', articles_path %>
 <% end %>
