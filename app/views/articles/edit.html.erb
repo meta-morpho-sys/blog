@@ -1,20 +1,12 @@
-<%= form_for :article, url: articles_path do |f| %>
+<h1>Edit article</h1>
 
-<style type='text/css'>
-  .field_with_errors {
-    color: #FF0000;
-  }
-
-  #error_explanation {
-    color: #FF0000;
-  }
-</style>
+<%= form_for(@article) do |f| %>
 
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@article.errors.count, "error") %>
-        Sure you can do better :-)
+        <%= pluralize(@article.errors.count, "error") %> prevented
+        this article from being saved:
       </h2>
       <ul>
         <% @article.errors.full_messages.each do |msg| %>
@@ -38,5 +30,6 @@
     <%= f.submit %>
   </p>
 
-  <%= link_to 'Back', articles_path %>
 <% end %>
+
+<%= link_to 'Back', articles_path %>
