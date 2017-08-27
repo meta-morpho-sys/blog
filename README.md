@@ -5,7 +5,9 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version - 2.4.1
+
+* This app in not tested, because this is just following a tutorial on Ruby on Rails
 
 * System dependencies
 
